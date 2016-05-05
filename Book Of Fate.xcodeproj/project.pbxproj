@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		53CF36CD1CDBBF5000EB762F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF36CC1CDBBF5000EB762F /* AppDelegate.swift */; };
+		53CF36CF1CDBBF5000EB762F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF36CE1CDBBF5000EB762F /* ViewController.swift */; };
+		53CF36D21CDBBF5000EB762F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53CF36D01CDBBF5000EB762F /* Main.storyboard */; };
+		53CF36D41CDBBF5000EB762F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53CF36D31CDBBF5000EB762F /* Assets.xcassets */; };
+		53CF36D71CDBBF5000EB762F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53CF36D51CDBBF5000EB762F /* LaunchScreen.storyboard */; };
+		53CF36E21CDBBF5100EB762F /* Book_Of_FateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF36E11CDBBF5100EB762F /* Book_Of_FateTests.swift */; };
+		53CF36ED1CDBBF5100EB762F /* Book_Of_FateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF36EC1CDBBF5100EB762F /* Book_Of_FateUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		53CF36DE1CDBBF5100EB762F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53CF36C11CDBBF5000EB762F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53CF36C81CDBBF5000EB762F;
+			remoteInfo = "Book Of Fate";
+		};
+		53CF36E91CDBBF5100EB762F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53CF36C11CDBBF5000EB762F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53CF36C81CDBBF5000EB762F;
+			remoteInfo = "Book Of Fate";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		53CF36C91CDBBF5000EB762F /* Book Of Fate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book Of Fate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		53CF36CC1CDBBF5000EB762F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		53CF36CE1CDBBF5000EB762F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		53CF36D11CDBBF5000EB762F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		53CF36D31CDBBF5000EB762F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		53CF36D61CDBBF5000EB762F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		53CF36D81CDBBF5000EB762F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53CF36DD1CDBBF5100EB762F /* Book Of FateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Book Of FateTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		53CF36E11CDBBF5100EB762F /* Book_Of_FateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book_Of_FateTests.swift; sourceTree = "<group>"; };
+		53CF36E31CDBBF5100EB762F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53CF36E81CDBBF5100EB762F /* Book Of FateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Book Of FateUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		53CF36EC1CDBBF5100EB762F /* Book_Of_FateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book_Of_FateUITests.swift; sourceTree = "<group>"; };
+		53CF36EE1CDBBF5100EB762F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		53CF36C61CDBBF5000EB762F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53CF36DA1CDBBF5100EB762F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53CF36E51CDBBF5100EB762F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		53CF36C01CDBBF5000EB762F = {
+			isa = PBXGroup;
+			children = (
+				53CF36CB1CDBBF5000EB762F /* Book Of Fate */,
+				53CF36E01CDBBF5100EB762F /* Book Of FateTests */,
+				53CF36EB1CDBBF5100EB762F /* Book Of FateUITests */,
+				53CF36CA1CDBBF5000EB762F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		53CF36CA1CDBBF5000EB762F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				53CF36C91CDBBF5000EB762F /* Book Of Fate.app */,
+				53CF36DD1CDBBF5100EB762F /* Book Of FateTests.xctest */,
+				53CF36E81CDBBF5100EB762F /* Book Of FateUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		53CF36CB1CDBBF5000EB762F /* Book Of Fate */ = {
+			isa = PBXGroup;
+			children = (
+				53CF36CC1CDBBF5000EB762F /* AppDelegate.swift */,
+				53CF36CE1CDBBF5000EB762F /* ViewController.swift */,
+				53CF36D01CDBBF5000EB762F /* Main.storyboard */,
+				53CF36D31CDBBF5000EB762F /* Assets.xcassets */,
+				53CF36D51CDBBF5000EB762F /* LaunchScreen.storyboard */,
+				53CF36D81CDBBF5000EB762F /* Info.plist */,
+			);
+			path = "Book Of Fate";
+			sourceTree = "<group>";
+		};
+		53CF36E01CDBBF5100EB762F /* Book Of FateTests */ = {
+			isa = PBXGroup;
+			children = (
+				53CF36E11CDBBF5100EB762F /* Book_Of_FateTests.swift */,
+				53CF36E31CDBBF5100EB762F /* Info.plist */,
+			);
+			path = "Book Of FateTests";
+			sourceTree = "<group>";
+		};
+		53CF36EB1CDBBF5100EB762F /* Book Of FateUITests */ = {
+			isa = PBXGroup;
+			children = (
+				53CF36EC1CDBBF5100EB762F /* Book_Of_FateUITests.swift */,
+				53CF36EE1CDBBF5100EB762F /* Info.plist */,
+			);
+			path = "Book Of FateUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		53CF36C81CDBBF5000EB762F /* Book Of Fate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53CF36F11CDBBF5100EB762F /* Build configuration list for PBXNativeTarget "Book Of Fate" */;
+			buildPhases = (
+				53CF36C51CDBBF5000EB762F /* Sources */,
+				53CF36C61CDBBF5000EB762F /* Frameworks */,
+				53CF36C71CDBBF5000EB762F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Book Of Fate";
+			productName = "Book Of Fate";
+			productReference = 53CF36C91CDBBF5000EB762F /* Book Of Fate.app */;
+			productType = "com.apple.product-type.application";
+		};
+		53CF36DC1CDBBF5100EB762F /* Book Of FateTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53CF36F41CDBBF5100EB762F /* Build configuration list for PBXNativeTarget "Book Of FateTests" */;
+			buildPhases = (
+				53CF36D91CDBBF5100EB762F /* Sources */,
+				53CF36DA1CDBBF5100EB762F /* Frameworks */,
+				53CF36DB1CDBBF5100EB762F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				53CF36DF1CDBBF5100EB762F /* PBXTargetDependency */,
+			);
+			name = "Book Of FateTests";
+			productName = "Book Of FateTests";
+			productReference = 53CF36DD1CDBBF5100EB762F /* Book Of FateTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		53CF36E71CDBBF5100EB762F /* Book Of FateUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53CF36F71CDBBF5100EB762F /* Build configuration list for PBXNativeTarget "Book Of FateUITests" */;
+			buildPhases = (
+				53CF36E41CDBBF5100EB762F /* Sources */,
+				53CF36E51CDBBF5100EB762F /* Frameworks */,
+				53CF36E61CDBBF5100EB762F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				53CF36EA1CDBBF5100EB762F /* PBXTargetDependency */,
+			);
+			name = "Book Of FateUITests";
+			productName = "Book Of FateUITests";
+			productReference = 53CF36E81CDBBF5100EB762F /* Book Of FateUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		53CF36C11CDBBF5000EB762F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = MICharisma;
+				TargetAttributes = {
+					53CF36C81CDBBF5000EB762F = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					53CF36DC1CDBBF5100EB762F = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 53CF36C81CDBBF5000EB762F;
+					};
+					53CF36E71CDBBF5100EB762F = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 53CF36C81CDBBF5000EB762F;
+					};
+				};
+			};
+			buildConfigurationList = 53CF36C41CDBBF5000EB762F /* Build configuration list for PBXProject "Book Of Fate" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 53CF36C01CDBBF5000EB762F;
+			productRefGroup = 53CF36CA1CDBBF5000EB762F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				53CF36C81CDBBF5000EB762F /* Book Of Fate */,
+				53CF36DC1CDBBF5100EB762F /* Book Of FateTests */,
+				53CF36E71CDBBF5100EB762F /* Book Of FateUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		53CF36C71CDBBF5000EB762F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53CF36D71CDBBF5000EB762F /* LaunchScreen.storyboard in Resources */,
+				53CF36D41CDBBF5000EB762F /* Assets.xcassets in Resources */,
+				53CF36D21CDBBF5000EB762F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53CF36DB1CDBBF5100EB762F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53CF36E61CDBBF5100EB762F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		53CF36C51CDBBF5000EB762F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53CF36CF1CDBBF5000EB762F /* ViewController.swift in Sources */,
+				53CF36CD1CDBBF5000EB762F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53CF36D91CDBBF5100EB762F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53CF36E21CDBBF5100EB762F /* Book_Of_FateTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53CF36E41CDBBF5100EB762F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53CF36ED1CDBBF5100EB762F /* Book_Of_FateUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		53CF36DF1CDBBF5100EB762F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53CF36C81CDBBF5000EB762F /* Book Of Fate */;
+			targetProxy = 53CF36DE1CDBBF5100EB762F /* PBXContainerItemProxy */;
+		};
+		53CF36EA1CDBBF5100EB762F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53CF36C81CDBBF5000EB762F /* Book Of Fate */;
+			targetProxy = 53CF36E91CDBBF5100EB762F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		53CF36D01CDBBF5000EB762F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53CF36D11CDBBF5000EB762F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		53CF36D51CDBBF5000EB762F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53CF36D61CDBBF5000EB762F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		53CF36EF1CDBBF5100EB762F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		53CF36F01CDBBF5100EB762F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		53CF36F21CDBBF5100EB762F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Book Of Fate/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "micharisma.Book-Of-Fate";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		53CF36F31CDBBF5100EB762F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Book Of Fate/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "micharisma.Book-Of-Fate";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		53CF36F51CDBBF5100EB762F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Book Of FateTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "micharisma.Book-Of-FateTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Book Of Fate.app/Book Of Fate";
+			};
+			name = Debug;
+		};
+		53CF36F61CDBBF5100EB762F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Book Of FateTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "micharisma.Book-Of-FateTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Book Of Fate.app/Book Of Fate";
+			};
+			name = Release;
+		};
+		53CF36F81CDBBF5100EB762F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Book Of FateUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "micharisma.Book-Of-FateUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Book Of Fate";
+			};
+			name = Debug;
+		};
+		53CF36F91CDBBF5100EB762F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Book Of FateUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "micharisma.Book-Of-FateUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Book Of Fate";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		53CF36C41CDBBF5000EB762F /* Build configuration list for PBXProject "Book Of Fate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53CF36EF1CDBBF5100EB762F /* Debug */,
+				53CF36F01CDBBF5100EB762F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53CF36F11CDBBF5100EB762F /* Build configuration list for PBXNativeTarget "Book Of Fate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53CF36F21CDBBF5100EB762F /* Debug */,
+				53CF36F31CDBBF5100EB762F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		53CF36F41CDBBF5100EB762F /* Build configuration list for PBXNativeTarget "Book Of FateTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53CF36F51CDBBF5100EB762F /* Debug */,
+				53CF36F61CDBBF5100EB762F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		53CF36F71CDBBF5100EB762F /* Build configuration list for PBXNativeTarget "Book Of FateUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53CF36F81CDBBF5100EB762F /* Debug */,
+				53CF36F91CDBBF5100EB762F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 53CF36C11CDBBF5000EB762F /* Project object */;
+}
