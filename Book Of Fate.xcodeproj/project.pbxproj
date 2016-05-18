@@ -14,6 +14,12 @@
 		53CF36D71CDBBF5000EB762F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53CF36D51CDBBF5000EB762F /* LaunchScreen.storyboard */; };
 		53CF36E21CDBBF5100EB762F /* Book_Of_FateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF36E11CDBBF5100EB762F /* Book_Of_FateTests.swift */; };
 		53CF36ED1CDBBF5100EB762F /* Book_Of_FateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF36EC1CDBBF5100EB762F /* Book_Of_FateUITests.swift */; };
+		53CF36FB1CDBC72300EB762F /* MICCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF36FA1CDBC72300EB762F /* MICCard.swift */; };
+		53CF36FC1CDBC72300EB762F /* MICCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF36FA1CDBC72300EB762F /* MICCard.swift */; };
+		53CF36FE1CDBCBC200EB762F /* MICSpread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF36FD1CDBCBC200EB762F /* MICSpread.swift */; };
+		53CF36FF1CDBCBC200EB762F /* MICSpread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF36FD1CDBCBC200EB762F /* MICSpread.swift */; };
+		53CF37011CDBD2C400EB762F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF37001CDBD2C400EB762F /* MainViewController.swift */; };
+		53CF37021CDBD2C400EB762F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF37001CDBD2C400EB762F /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +53,9 @@
 		53CF36E81CDBBF5100EB762F /* Book Of FateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Book Of FateUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53CF36EC1CDBBF5100EB762F /* Book_Of_FateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book_Of_FateUITests.swift; sourceTree = "<group>"; };
 		53CF36EE1CDBBF5100EB762F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53CF36FA1CDBC72300EB762F /* MICCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MICCard.swift; path = Models/MICCard.swift; sourceTree = "<group>"; };
+		53CF36FD1CDBCBC200EB762F /* MICSpread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MICSpread.swift; path = Models/MICSpread.swift; sourceTree = "<group>"; };
+		53CF37001CDBD2C400EB762F /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +108,13 @@
 			children = (
 				53CF36CC1CDBBF5000EB762F /* AppDelegate.swift */,
 				53CF36CE1CDBBF5000EB762F /* ViewController.swift */,
+				53CF37001CDBD2C400EB762F /* MainViewController.swift */,
 				53CF36D01CDBBF5000EB762F /* Main.storyboard */,
 				53CF36D31CDBBF5000EB762F /* Assets.xcassets */,
 				53CF36D51CDBBF5000EB762F /* LaunchScreen.storyboard */,
 				53CF36D81CDBBF5000EB762F /* Info.plist */,
+				53CF36FA1CDBC72300EB762F /* MICCard.swift */,
+				53CF36FD1CDBCBC200EB762F /* MICSpread.swift */,
 			);
 			path = "Book Of Fate";
 			sourceTree = "<group>";
@@ -193,6 +205,7 @@
 				TargetAttributes = {
 					53CF36C81CDBBF5000EB762F = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = C7FJS9SLNW;
 					};
 					53CF36DC1CDBBF5100EB762F = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -256,8 +269,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53CF36FB1CDBC72300EB762F /* MICCard.swift in Sources */,
 				53CF36CF1CDBBF5000EB762F /* ViewController.swift in Sources */,
+				53CF36FE1CDBCBC200EB762F /* MICSpread.swift in Sources */,
 				53CF36CD1CDBBF5000EB762F /* AppDelegate.swift in Sources */,
+				53CF37011CDBD2C400EB762F /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +282,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				53CF36E21CDBBF5100EB762F /* Book_Of_FateTests.swift in Sources */,
+				53CF36FC1CDBC72300EB762F /* MICCard.swift in Sources */,
+				53CF36FF1CDBCBC200EB762F /* MICSpread.swift in Sources */,
+				53CF37021CDBD2C400EB762F /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,10 +420,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Book Of Fate/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "micharisma.Book-Of-Fate";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -412,10 +434,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Book Of Fate/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "micharisma.Book-Of-Fate";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
