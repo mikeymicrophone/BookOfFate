@@ -85,4 +85,33 @@ class MICSpread {
         
         return MICSpread(card_pile: card_pile.reverse())
     }
+
+    class func natural_spread() -> MICSpread {
+        return MICSpread(card_pile: default_card_stack())
+    }
+    
+    class func life_spread() -> MICSpread {
+        return MICSpread(card_pile: grand_solar_spread_for_years(1).cards)
+    }
+
+    func rows() -> NSMutableArray {
+        let rows = NSMutableArray()
+        var spread_position = 0
+        
+        for _ in [0,1,2,3,4,5,6] {
+            let card_range = NSMakeRange(spread_position, 7)
+            let cards_for_row = NSIndexSet(indexesInRange: card_range)
+            let planetary_group = cards.objectsAtIndexes(cards_for_row)
+            rows.addObject(planetary_group)
+            spread_position += 7
+        }
+        
+        let ruling_group = NSMutableArray()
+        ruling_group.addObject(cards.objectAtIndex(49))
+        ruling_group.addObject(cards.objectAtIndex(50))
+        ruling_group.addObject(cards.objectAtIndex(51))
+        rows.addObject(ruling_group)
+        return rows
+    }
+    
 }
