@@ -33,4 +33,11 @@ class Book_Of_FateTests: XCTestCase {
         }
     }
     
+    func testBirthCardForMonth() {
+        let input = MICCard.birthCardForMonth(5, day: 12)
+        let output = MICCard(suit: "Diamonds", face: "Seven")
+        XCTAssertEqual(input.suit, output.suit)
+        XCTAssertEqual(input.face, output.face)
+    }
+    
 }
