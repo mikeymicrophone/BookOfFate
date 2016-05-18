@@ -93,6 +93,26 @@ class MICSpread {
     class func life_spread() -> MICSpread {
         return MICSpread(card_pile: grand_solar_spread_for_years(1).cards)
     }
+    
+    func row_of_card(card : MICCard) -> Int {
+        for row_index in 1...(rows().count) {
+            for position in rows()[row_index] {
+                if card.matches_card(position) {
+                    return row_index
+                }
+            }
+        }
+    }
+    
+    func column_of_card(card : MICCard) -> Int {
+        for row_index in 1...(rows().count) {
+            for column_index in 1...(rows()[row_index].count) {
+                if card.matches_card(rows()[row_index][column_index]) {
+                    return column_index
+                }
+            }
+        }
+    }
 
     func rows() -> NSMutableArray {
         let rows = NSMutableArray()
