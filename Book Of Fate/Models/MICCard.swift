@@ -21,4 +21,13 @@ class MICCard {
         let position = 54 - ((month * 2) + day)
         return MICSpread.default_card_stack().objectAtIndex(position) as! MICCard
     }
+
+    func matches_card(card : MICCard) -> Bool {
+        if suit == card.suit {
+            if face == card.face {
+                return true
+            }
+        }
+        return false
+    }
 }
