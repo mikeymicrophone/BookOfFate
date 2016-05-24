@@ -24,7 +24,12 @@ class MainViewController : UIViewController {
         let day = NSCalendar.currentCalendar().component(NSCalendarUnit.Day, fromDate: datePicker.date)
         
         let birth_card = MICCard.birthCardForMonth(month, day: day)
-        outputLabel.text = "\(birth_card.face) of \(birth_card.suit)"
+        outputLabel.text = birth_card.description
+        let grand_solar_spread = MICSpread.grand_solar_spread_for_years(1)
+        let row = grand_solar_spread.row_of_card(birth_card)
+        let column = grand_solar_spread.column_of_card(birth_card)
+        print("row: \(row)")
+        print("column: \(column)")
     }
     
     func setupViewsAndConstraints() {

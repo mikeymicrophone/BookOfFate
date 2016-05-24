@@ -8,10 +8,13 @@
 
 import Foundation
 
-class MICCard {
-    var suit : String
-    var face : String
-    
+class MICCard : CustomStringConvertible, Equatable {
+    let suit : String
+    let face : String
+    var description : String {
+        return "\(face) of \(suit)"
+    }
+
     init(suit : String, face : String) {
         self.suit = suit
         self.face = face
@@ -23,11 +26,10 @@ class MICCard {
     }
 
     func matches_card(card : MICCard) -> Bool {
-        if suit == card.suit {
-            if face == card.face {
-                return true
-            }
-        }
-        return false
+        return suit == card.suit && face == card.face
     }
+}
+
+func ==(lhs: MICCard, rhs: MICCard) -> Bool {
+    return lhs.suit == rhs.suit && lhs.face == rhs.face
 }

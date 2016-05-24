@@ -15,14 +15,20 @@ class MICSpread {
         self.cards = card_pile
     }
     
+    class func suits() -> NSArray {
+        return ["Hearts", "Clubs", "Diamonds", "Spades"]
+    }
+    
+    class func faces() -> NSArray {
+        return ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"]
+    }
+    
     class func default_card_stack() -> NSArray {
         let cards : NSMutableArray = NSMutableArray()
-        let suits = ["Hearts", "Clubs", "Diamonds", "Spades"]
-        let faces = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"]
         
-        for (suit) in suits {
-            for (face) in faces {
-                cards.addObject(MICCard(suit: suit, face: face))
+        for (suit) in suits() {
+            for (face) in faces() {
+                cards.addObject(MICCard(suit: suit as! String, face: face as! String))
             }
         }
         return cards
@@ -31,14 +37,14 @@ class MICSpread {
     class func grand_solar_spread_for_years(years : Int) -> MICSpread {
         var card_pile : NSArray = default_card_stack().reverse()
         
-        for(var i = 0; i < years; i++) {
+        for _ in 0..<years {
             var hearts_pile = NSMutableArray()
             var clubs_pile = NSMutableArray()
             var diamonds_pile = NSMutableArray()
             var spades_pile = NSMutableArray()
             var top_card = 51
             
-            for j in [0,1,2,3] {
+            for _ in suits() {
                 hearts_pile.addObject(card_pile.objectAtIndex(top_card - 2))
                 hearts_pile.addObject(card_pile.objectAtIndex(top_card - 1))
                 hearts_pile.addObject(card_pile.objectAtIndex(top_card))
@@ -68,8 +74,9 @@ class MICSpread {
             clubs_pile = []
             diamonds_pile = []
             spades_pile = []
+            top_card = 51
             
-            for _ in [0,1,2,3,4,5,6,7,8,9,10,11,12] {
+            for _ in faces() {
                 hearts_pile.addObject(card_pile.objectAtIndex(top_card))
                 clubs_pile.addObject(card_pile.objectAtIndex(top_card - 1))
                 diamonds_pile.addObject(card_pile.objectAtIndex(top_card - 2))
@@ -95,34 +102,38 @@ class MICSpread {
     }
     
     func row_of_card(card : MICCard) -> Int {
-        for row_index in 1...(rows().count) {
-            for position in rows()[row_index] {
+        for row_index in 0..<(rows().count) {
+            let row = rows()[row_index] as! Array<MICCard>
+            for position in row {
                 if card.matches_card(position) {
                     return row_index
                 }
             }
         }
+        return 1
     }
-    
+
     func column_of_card(card : MICCard) -> Int {
-        for row_index in 1...(rows().count) {
-            for column_index in 1...(rows()[row_index].count) {
-                if card.matches_card(rows()[row_index][column_index]) {
-                    return column_index
+        for row_index in 0..<(rows().count) {
+            let row = rows()[row_index] as! Array<MICCard>
+            for position in row {
+                if card.matches_card(position) {
+                    return row.indexOf(position)!
                 }
             }
         }
+        return 2
     }
 
     func rows() -> NSMutableArray {
-        let rows = NSMutableArray()
+        let row_group = NSMutableArray()
         var spread_position = 0
         
         for _ in [0,1,2,3,4,5,6] {
             let card_range = NSMakeRange(spread_position, 7)
             let cards_for_row = NSIndexSet(indexesInRange: card_range)
             let planetary_group = cards.objectsAtIndexes(cards_for_row)
-            rows.addObject(planetary_group)
+            row_group.addObject(planetary_group)
             spread_position += 7
         }
         
@@ -130,8 +141,8 @@ class MICSpread {
         ruling_group.addObject(cards.objectAtIndex(49))
         ruling_group.addObject(cards.objectAtIndex(50))
         ruling_group.addObject(cards.objectAtIndex(51))
-        rows.addObject(ruling_group)
-        return rows
+        row_group.addObject(ruling_group)
+        return row_group
     }
     
 }
