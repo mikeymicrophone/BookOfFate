@@ -105,7 +105,7 @@ class MICSpread {
         for row_index in 0..<(rows().count) {
             let row = rows()[row_index] as! Array<MICCard>
             for position in row {
-                if card.matches_card(position) {
+                if card == position {
                     return row_index
                 }
             }
@@ -117,7 +117,7 @@ class MICSpread {
         for row_index in 0..<(rows().count) {
             let row = rows()[row_index] as! Array<MICCard>
             for position in row {
-                if card.matches_card(position) {
+                if card == position {
                     return row.indexOf(position)!
                 }
             }

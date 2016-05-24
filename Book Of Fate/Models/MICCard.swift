@@ -24,10 +24,6 @@ class MICCard : CustomStringConvertible, Equatable {
         let position = 54 - ((month * 2) + day)
         return MICSpread.default_card_stack().objectAtIndex(position) as! MICCard
     }
-
-    func matches_card(card : MICCard) -> Bool {
-        return suit == card.suit && face == card.face
-    }
 }
 
 func ==(lhs: MICCard, rhs: MICCard) -> Bool {
