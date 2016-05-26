@@ -24,6 +24,14 @@ class MICCard : CustomStringConvertible, Equatable {
         let position = 54 - ((month * 2) + day)
         return MICSpread.default_card_stack().objectAtIndex(position) as! MICCard
     }
+
+    func karma_card_to_owe() -> MICCard {
+        return MICSpread.natural_spread().card_in_position(MICSpread.life_spread().position_of_card(self))
+    }
+    
+    func karma_card_owed() -> MICCard {
+        return MICSpread.life_spread().card_in_position(MICSpread.natural_spread().position_of_card(self))
+    }
 }
 
 func ==(lhs: MICCard, rhs: MICCard) -> Bool {

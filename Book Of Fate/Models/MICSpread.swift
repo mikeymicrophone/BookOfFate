@@ -15,11 +15,11 @@ class MICSpread {
         self.cards = card_pile
     }
     
-    class func suits() -> NSArray {
+    class func suits() -> Array<String> {
         return ["Hearts", "Clubs", "Diamonds", "Spades"]
     }
     
-    class func faces() -> NSArray {
+    class func faces() -> Array<String> {
         return ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"]
     }
     
@@ -28,7 +28,7 @@ class MICSpread {
         
         for (suit) in suits() {
             for (face) in faces() {
-                cards.addObject(MICCard(suit: suit as! String, face: face as! String))
+                cards.addObject(MICCard(suit: suit, face: face))
             }
         }
         return cards
@@ -101,6 +101,16 @@ class MICSpread {
         return MICSpread(card_pile: grand_solar_spread_for_years(1).cards)
     }
     
+    func position_of_card(card : MICCard) -> MICPosition {
+        return MICPosition(spread: self, card: card)
+    }
+    
+    func card_in_position(position : MICPosition) -> MICCard {
+        var row : Array<MICCard> = rows()[position.vertical_position] as! Array<MICCard>
+        var card : MICCard = row[position.horizontal_position]
+        return card
+    }
+    
     func row_of_card(card : MICCard) -> Int {
         for row_index in 0..<(rows().count) {
             let row = rows()[row_index] as! Array<MICCard>
@@ -110,7 +120,7 @@ class MICSpread {
                 }
             }
         }
-        return 1
+        return 0
     }
 
     func column_of_card(card : MICCard) -> Int {
@@ -122,7 +132,7 @@ class MICSpread {
                 }
             }
         }
-        return 2
+        return 0
     }
 
     func rows() -> NSMutableArray {
