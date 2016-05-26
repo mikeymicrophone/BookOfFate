@@ -20,6 +20,7 @@
 		53CF36FF1CDBCBC200EB762F /* MICSpread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF36FD1CDBCBC200EB762F /* MICSpread.swift */; };
 		53CF37011CDBD2C400EB762F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF37001CDBD2C400EB762F /* MainViewController.swift */; };
 		53CF37021CDBD2C400EB762F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF37001CDBD2C400EB762F /* MainViewController.swift */; };
+		76AA883B1CF6A2F400A46A86 /* MICPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AA883A1CF6A2F400A46A86 /* MICPosition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		53CF36FA1CDBC72300EB762F /* MICCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MICCard.swift; path = Models/MICCard.swift; sourceTree = "<group>"; };
 		53CF36FD1CDBCBC200EB762F /* MICSpread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MICSpread.swift; path = Models/MICSpread.swift; sourceTree = "<group>"; };
 		53CF37001CDBD2C400EB762F /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		76AA883A1CF6A2F400A46A86 /* MICPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MICPosition.swift; path = Models/MICPosition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				53CF36D81CDBBF5000EB762F /* Info.plist */,
 				53CF36FA1CDBC72300EB762F /* MICCard.swift */,
 				53CF36FD1CDBCBC200EB762F /* MICSpread.swift */,
+				76AA883A1CF6A2F400A46A86 /* MICPosition.swift */,
 			);
 			path = "Book Of Fate";
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			files = (
 				53CF36FB1CDBC72300EB762F /* MICCard.swift in Sources */,
 				53CF36CF1CDBBF5000EB762F /* ViewController.swift in Sources */,
+				76AA883B1CF6A2F400A46A86 /* MICPosition.swift in Sources */,
 				53CF36FE1CDBCBC200EB762F /* MICSpread.swift in Sources */,
 				53CF36CD1CDBBF5000EB762F /* AppDelegate.swift in Sources */,
 				53CF37011CDBD2C400EB762F /* MainViewController.swift in Sources */,
@@ -509,6 +513,7 @@
 				53CF36F31CDBBF5100EB762F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		53CF36F41CDBBF5100EB762F /* Build configuration list for PBXNativeTarget "Book Of FateTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +522,7 @@
 				53CF36F61CDBBF5100EB762F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		53CF36F71CDBBF5100EB762F /* Build configuration list for PBXNativeTarget "Book Of FateUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +531,7 @@
 				53CF36F91CDBBF5100EB762F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
