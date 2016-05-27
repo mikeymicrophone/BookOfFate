@@ -23,11 +23,11 @@ class MICSpread {
         return ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"]
     }
     
-    class func default_card_stack() -> NSArray {
-        let cards : NSMutableArray = NSMutableArray()
+    class func default_card_stack() -> NSMutableArray {
+        let cards = NSMutableArray()
         
-        for (suit) in suits() {
-            for (face) in faces() {
+        for suit in suits() {
+            for face in faces() {
                 cards.addObject(MICCard(suit: suit, face: face))
             }
         }
@@ -107,8 +107,7 @@ class MICSpread {
     
     func card_in_position(position : MICPosition) -> MICCard {
         var row : Array<MICCard> = rows()[position.vertical_position] as! Array<MICCard>
-        var card : MICCard = row[position.horizontal_position]
-        return card
+        return row[position.horizontal_position]
     }
     
     func row_of_card(card : MICCard) -> Int {
@@ -155,4 +154,41 @@ class MICSpread {
         return row_group
     }
     
+    func birthday_grid() -> [MICCard:NSMutableArray] {
+        let calendar = NSCalendar.currentCalendar()
+        var current_day = NSDateComponents()
+        current_day.year = 2016
+        current_day.month = 1
+        current_day.day = 1
+        var day = calendar.dateFromComponents(current_day)
+        let days_of_the_year = NSMutableArray()
+        let a_day = NSDateComponents()
+        a_day.day = 1
+        while current_day.year == 2016 {
+            days_of_the_year.addObject(day!)
+            day = calendar.dateByAddingComponents(a_day, toDate: day!, options:NSCalendarOptions.init())
+            current_day = calendar.components([.Day, .Month, .Year], fromDate: day!)
+        }
+        
+        var cards_for_birthdays = [NSDate:MICCard]()
+        var numerals = NSDateComponents()
+        for birthday in days_of_the_year {
+            numerals = calendar.components([.Month, .Day], fromDate: birthday as! NSDate)
+            cards_for_birthdays[birthday as! NSDate] = MICCard.birthCardForMonth(numerals.month, day: numerals.day)
+        }
+        
+        var birthdays_for_card = [MICCard:NSMutableArray]()
+        var birthdays = NSMutableArray()
+        var deck = MICSpread.default_card_stack()
+        for card in deck {
+            for (date, birth_card) in cards_for_birthdays {
+                if card as! MICCard == birth_card {
+                    birthdays.addObject(date)
+                }
+            }
+            birthdays_for_card[card as! MICCard] = birthdays
+            birthdays = NSMutableArray()
+        }
+        return birthdays_for_card
+    }
 }

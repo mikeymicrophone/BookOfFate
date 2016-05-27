@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MICCard : CustomStringConvertible, Equatable {
+class MICCard : CustomStringConvertible, Equatable, Hashable {
     let suit : String
     let face : String
     var description : String {
@@ -22,6 +22,9 @@ class MICCard : CustomStringConvertible, Equatable {
     
     class func birthCardForMonth(month : Int, day : Int) -> MICCard {
         let position = 54 - ((month * 2) + day)
+        if position == -1 {
+            return MICCard(suit:"No Suit", face:"Joker")
+        }
         return MICSpread.default_card_stack().objectAtIndex(position) as! MICCard
     }
 
@@ -31,6 +34,10 @@ class MICCard : CustomStringConvertible, Equatable {
     
     func karma_card_owed() -> MICCard {
         return MICSpread.life_spread().card_in_position(MICSpread.natural_spread().position_of_card(self))
+    }
+    
+    var hashValue: Int {
+        return MICSpread.default_card_stack().indexOfObject(self)
     }
 }
 
