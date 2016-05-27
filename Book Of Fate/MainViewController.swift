@@ -26,14 +26,8 @@ class MainViewController : UIViewController {
         let birth_card = MICCard.birthCardForMonth(month, day: day)
         let first_karma_card = birth_card.karma_card_to_owe()
         let second_karma_card = birth_card.karma_card_owed()
-        print(first_karma_card)
-        print(second_karma_card)
         outputLabel.text = birth_card.description
         let grand_solar_spread = MICSpread.grand_solar_spread_for_years(1)
-        let row = grand_solar_spread.row_of_card(birth_card)
-        let column = grand_solar_spread.column_of_card(birth_card)
-        print("row: \(row)")
-        print("column: \(column)")
     }
     
     func setupViewsAndConstraints() {
