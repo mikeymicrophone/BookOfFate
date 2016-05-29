@@ -28,11 +28,38 @@ class MICPosition {
     
     func position_with_displacement(places : Int) -> MICPosition {
         print(spread)
+        var final_position : MICPosition?
+        if (self.vertical_position == 7) {
+            if ((self.horizontal_position + places) < 3) {
+                final_position = MICPosition(row:vertical_position, column:horizontal_position + places);
+            } else {
+                let horizontal = ((horizontal_position + places - 3) % 7);
+                let vertical = ((horizontal_position + places - 3) / 7);
+                final_position = MICPosition(row:vertical, column:horizontal)
+            }
+        } else if (self.vertical_position == 6) {
+            if ((self.horizontal_position + places) < 7) {
+                final_position = MICPosition(row:vertical_position, column:horizontal_position + places)
+            } else if ((self.horizontal_position + places) < 10) {
+                final_position = MICPosition(row:7, column:horizontal_position)
+            } else {
+                let horizontal = (self.horizontal_position + places) - 10;
+                let vertical = horizontal / 7;
+                final_position = MICPosition(row:vertical, column:horizontal)
+            }
+        } else {
+            if ((self.horizontal_position + places) < 7) {
+                final_position = MICPosition(row: vertical_position, column: horizontal_position + places)
+            } else if ((self.horizontal_position + places) < 14) {
+                final_position = MICPosition(row: vertical_position + 1, column:(horizontal_position + places) % 7)
+            }
+        }
         
-        let position = MICPosition(row:vertical_position + 1, column:horizontal_position - 1)
-        position.spread = spread
-        position.card = spread?.card_in_position(position)
+
+//        let position = MICPosition(row:vertical_position + 1, column:horizontal_position - 1)
+        final_position!.spread = spread
+        final_position!.card = spread?.card_in_position(final_position!)
         
-        return position
+        return final_position!
     }
 }

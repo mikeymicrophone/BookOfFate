@@ -34,11 +34,13 @@ class MainViewController : UIViewController {
         let karmic_helpers = birthday_list[first_karma_card]
         let karmic_helpees = birthday_list[second_karma_card]
         karma_helpers_label.text = grand_solar_spread.karmic_helpers_text(first_karma_card)
+        let long_range_card = birth_card.long_range_card_for_age(1)
 //        print("Karmic helpers: ", first_karma_card)
 //        print(karmic_helpers)
 //        print("Karmic helpees", second_karma_card)
 //        print(karmic_helpees)
         print(grand_solar_spread)
+        print(long_range_card)
     }
     
     func setupViewsAndConstraints() {
