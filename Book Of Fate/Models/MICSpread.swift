@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MICSpread {
+class MICSpread : CustomStringConvertible {
     var cards : NSArray = []
     
     init(card_pile : NSArray) {
@@ -110,6 +110,12 @@ class MICSpread {
         return row[position.horizontal_position]
     }
     
+    func position_beyond_card(card : MICCard, by_places places : Int) -> MICPosition {
+        let starting_position = position_of_card(card)
+        let final_position = starting_position.position_with_displacement(places)
+        return final_position
+    }
+    
     func row_of_card(card : MICCard) -> Int {
         for row_index in 0..<(rows().count) {
             let row = rows()[row_index] as! Array<MICCard>
@@ -179,7 +185,7 @@ class MICSpread {
         
         var birthdays_for_card = [MICCard:NSMutableArray]()
         var birthdays = NSMutableArray()
-        var deck = MICSpread.default_card_stack()
+        let deck = MICSpread.default_card_stack()
         for card in deck {
             for (date, birth_card) in cards_for_birthdays {
                 if card as! MICCard == birth_card {
@@ -190,5 +196,31 @@ class MICSpread {
             birthdays = NSMutableArray()
         }
         return birthdays_for_card
+    }
+    
+    func karmic_helpers_text(card : MICCard) -> String {
+        let dates = birthday_grid()[card]
+        var text = ""
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.timeStyle = .NoStyle
+        dateFormatter.dateStyle = .MediumStyle
+        for date in dates! {
+            let dateString : NSString = dateFormatter.stringFromDate(date as! NSDate)
+            text = text + (dateString as String) + "\n"
+        }
+//        var text = dates!.reduce("") { $0 + $1.dateWithCalendarFormat("%Y-%m-%d") }
+        return text
+    }
+    
+    var description : String {
+        var text = ""
+        for row in rows() {
+            if row is Array<MICCard> {
+                for card in row as! Array<MICCard> {
+                    text = text + " " + card.abbreviation()
+                }
+            }
+        }
+        return text
     }
 }

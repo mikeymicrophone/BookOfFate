@@ -25,4 +25,14 @@ class MICPosition {
         vertical_position = row
         horizontal_position = column
     }
+    
+    func position_with_displacement(places : Int) -> MICPosition {
+        print(spread)
+        
+        let position = MICPosition(row:vertical_position + 1, column:horizontal_position - 1)
+        position.spread = spread
+        position.card = spread?.card_in_position(position)
+        
+        return position
+    }
 }
