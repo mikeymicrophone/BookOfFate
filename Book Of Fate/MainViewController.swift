@@ -30,6 +30,7 @@ class MainViewController : UIViewController {
         outputLabel.text = birth_card.description
         let grand_solar_spread = MICSpread.grand_solar_spread_for_years(1)
         karma_helpers_label.text = grand_solar_spread.karmic_helpers_text(first_karma_card)
+        print(grand_solar_spread.ascii_spread())
     }
     
     func setupViewsAndConstraints() {

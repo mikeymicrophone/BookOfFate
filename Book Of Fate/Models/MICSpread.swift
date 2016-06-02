@@ -227,4 +227,23 @@ class MICSpread : CustomStringConvertible {
         }
         return text
     }
+
+    func ascii_spread() -> String {
+        var ascii : String = "      "
+        let ruling_group : Array<MICCard> = rows()[7] as! Array<MICCard>
+        for card in ruling_group.reverse() {
+            ascii += card.abbreviation() + "|"
+        }
+        ascii += "\n"
+        
+        var planetary_group : Array<MICCard>
+        for row in 0..<7 {
+            planetary_group = rows()[row] as! Array<MICCard>
+            for card in planetary_group.reverse() {
+                ascii += card.abbreviation() + "|"
+            }
+            ascii += "\n"
+        }
+        return ascii
+    }
 }
