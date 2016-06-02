@@ -59,4 +59,14 @@ class MICPosition {
         
         return final_position!
     }
+
+    func ascii_position() -> Int {
+        var starting_position : Int
+        if vertical_position == 7 {
+            starting_position = (6 - horizontal_position * 3)
+        } else {
+            starting_position = (vertical_position * 21 + (18 - horizontal_position * 3)) + 9
+        }
+        return starting_position
+    }    
 }

@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 class MICSpread : CustomStringConvertible {
     var cards : NSArray = []
+    var colored_spread : NSMutableAttributedString?
     
     init(card_pile : NSArray) {
         self.cards = card_pile
@@ -229,11 +231,12 @@ class MICSpread : CustomStringConvertible {
     }
 
     func ascii_spread() -> String {
-        var ascii : String = "      "
+        var ascii : String = ""
         let ruling_group : Array<MICCard> = rows()[7] as! Array<MICCard>
         for card in ruling_group.reverse() {
             ascii += card.abbreviation() + "|"
         }
+        ascii.removeAtIndex(ascii.endIndex.predecessor())
         ascii += "\n"
         
         var planetary_group : Array<MICCard>
@@ -242,8 +245,27 @@ class MICSpread : CustomStringConvertible {
             for card in planetary_group.reverse() {
                 ascii += card.abbreviation() + "|"
             }
+            ascii.removeAtIndex(ascii.endIndex.predecessor())
             ascii += "\n"
         }
         return ascii
     }
+
+    func colored_ascii() -> NSMutableAttributedString {
+        return NSMutableAttributedString(string: ascii_spread())
+    }
+
+    func color_card(card : MICCard, with_color color : UIColor) {
+        if colored_spread == nil {
+            colored_spread = colored_ascii()
+        }
+        let colored_range = NSMakeRange(position_of_card(card).ascii_position(), 2)
+        colored_spread?.addAttribute(NSForegroundColorAttributeName, value: color, range: colored_range)
+    }
+
+    func colored_ascii_spread_for(birth_card : MICCard) -> NSMutableAttributedString {
+        color_card(birth_card, with_color: UIColor.greenColor())
+        return colored_spread!
+    }
+    
 }
