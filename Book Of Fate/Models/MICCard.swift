@@ -17,15 +17,13 @@ class MICCard : CustomStringConvertible, Equatable, Hashable {
     
     func abbreviation() -> String {
         let suit_abbreviation = ["Hearts": "H", "Clubs": "C", "Diamonds": "D", "Spades": "S", "No Suit": "J"][suit]
-        let face_abbreviation = ["Ace": "A", "Two": "2", "Three": "3", "Four": "4", "Five": "5", "Six": "6", "Seven": "7", "Eight": "8", "Nine": "9", "Ten": "10", "Jack": "J", "Queen": "Q", "King": "K", "Joker": "J"][face]
-        return suit_abbreviation! + face_abbreviation!
-        
+        let face_abbreviation = ["Ace": "A", "Two": "2", "Three": "3", "Four": "4", "Five": "5", "Six": "6", "Seven": "7", "Eight": "8", "Nine": "9", "Ten": "T", "Jack": "J", "Queen": "Q", "King": "K", "Joker": "J"][face]
+        return face_abbreviation! + suit_abbreviation!
     }
 
     init(suit : String, face : String) {
         self.suit = suit
         self.face = face
-        
     }
     
     class func birthCardForMonth(month : Int, day : Int) -> MICCard {
@@ -55,18 +53,18 @@ class MICCard : CustomStringConvertible, Equatable, Hashable {
         let long_range_card : MICCard = era_spread.card_in_position(era_spread.position_beyond_card(self, by_places:range))
         return long_range_card
     }
+    
+    func pluto_card_for_age(age : Int) -> MICCard {
+        let era_spread = MICSpread.grand_solar_spread_for_years(age)
+        let pluto_card : MICCard = era_spread.card_in_position(era_spread.position_beyond_card(self, by_places:8))
+        return pluto_card
+    }
 
-//    -(MICCard *)plutoCardForAge:(NSInteger)age {
-//    MICSpread *eraSpread = [MICSpread spreadForAge:age];
-//    MICCard *plutoCard = [eraSpread cardInPosition:[eraSpread positionBeyondCard:self byPlaces:8]];
-//    return plutoCard;
-//    }
-//    
-//    -(MICCard *)resultCardForAge:(NSInteger)age {
-//    MICSpread *eraSpread = [MICSpread spreadForAge:age];
-//    MICCard *resultCard = [eraSpread cardInPosition:[eraSpread positionBeyondCard:self byPlaces:9]];
-//    return resultCard;
-//    }
+    func result_card_for_age(age : Int) -> MICCard {
+        let era_spread = MICSpread.grand_solar_spread_for_years(age)
+        let result_card : MICCard = era_spread.card_in_position(era_spread.position_beyond_card(self, by_places:9))
+        return result_card
+    }
     
     var hashValue: Int {
         return MICSpread.default_card_stack().indexOfObject(self)

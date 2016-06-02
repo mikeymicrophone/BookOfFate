@@ -115,6 +115,11 @@ class MICSpread : CustomStringConvertible {
         let final_position = starting_position.position_with_displacement(places)
         return final_position
     }
+
+    func environment_card_for_card(card : MICCard) -> MICCard {
+        let environment_card : MICCard = card_in_position(MICSpread.life_spread().position_of_card(card))
+        return environment_card
+    }
     
     func row_of_card(card : MICCard) -> Int {
         for row_index in 0..<(rows().count) {
@@ -208,7 +213,6 @@ class MICSpread : CustomStringConvertible {
             let dateString : NSString = dateFormatter.stringFromDate(date as! NSDate)
             text = text + (dateString as String) + "\n"
         }
-//        var text = dates!.reduce("") { $0 + $1.dateWithCalendarFormat("%Y-%m-%d") }
         return text
     }
     
