@@ -29,6 +29,11 @@ class MICCard : CustomStringConvertible, Equatable, Hashable {
         let code = code_base + suit_bit! + face_bit!
         return Character(UnicodeScalar(code))
     }
+    
+    func unicode_suit_character() -> Character {
+        let suit_code : Int = ["Hearts": 0x2661, "Clubs": 0x2663, "Diamonds": 0x2662, "Spades": 0x2660, "No Suit": 2672][suit]!
+        return Character(UnicodeScalar(suit_code))
+    }
 
     init(suit : String, face : String) {
         self.suit = suit

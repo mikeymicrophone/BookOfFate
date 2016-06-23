@@ -267,5 +267,24 @@ class MICSpread : CustomStringConvertible {
         color_card(birth_card.result_card_for_age(birth_card.age!), with_color: UIColor.darkGrayColor())
         return colored_spread!
     }
-    
+
+    func unicode_spread() -> String {
+        var unicode : String = ""
+        let ruling_group = rows()[7]
+        for card in ruling_group.reverse() {
+            unicode += String(card.unicode_character())
+        }
+        unicode += "\n"
+        
+        var planetary_group : Array<MICCard>
+        for row in 0..<7 {
+            planetary_group = rows()[row]
+            for card in planetary_group.reverse() {
+                unicode += String(card.unicode_character())
+            }
+            unicode += "\n"
+        }
+        return unicode
+
+    }
 }

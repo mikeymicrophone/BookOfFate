@@ -20,6 +20,7 @@
 		53CF36FF1CDBCBC200EB762F /* MICSpread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF36FD1CDBCBC200EB762F /* MICSpread.swift */; };
 		53CF37011CDBD2C400EB762F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF37001CDBD2C400EB762F /* MainViewController.swift */; };
 		53CF37021CDBD2C400EB762F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF37001CDBD2C400EB762F /* MainViewController.swift */; };
+		76463B8A1D1C7806005E1793 /* DejaVuSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76463B891D1C7806005E1793 /* DejaVuSans.ttf */; };
 		76AA883B1CF6A2F400A46A86 /* MICPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AA883A1CF6A2F400A46A86 /* MICPosition.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		53CF36FA1CDBC72300EB762F /* MICCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MICCard.swift; path = Models/MICCard.swift; sourceTree = "<group>"; };
 		53CF36FD1CDBCBC200EB762F /* MICSpread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MICSpread.swift; path = Models/MICSpread.swift; sourceTree = "<group>"; };
 		53CF37001CDBD2C400EB762F /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		76463B891D1C7806005E1793 /* DejaVuSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = DejaVuSans.ttf; path = "../../../Downloads/dejavu-sans-ttf-2.35/ttf/DejaVuSans.ttf"; sourceTree = "<group>"; };
 		76AA883A1CF6A2F400A46A86 /* MICPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MICPosition.swift; path = Models/MICPosition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 		53CF36CB1CDBBF5000EB762F /* Book Of Fate */ = {
 			isa = PBXGroup;
 			children = (
+				76463B891D1C7806005E1793 /* DejaVuSans.ttf */,
 				53CF36CC1CDBBF5000EB762F /* AppDelegate.swift */,
 				53CF36CE1CDBBF5000EB762F /* ViewController.swift */,
 				53CF37001CDBD2C400EB762F /* MainViewController.swift */,
@@ -247,6 +250,7 @@
 			files = (
 				53CF36D71CDBBF5000EB762F /* LaunchScreen.storyboard in Resources */,
 				53CF36D41CDBBF5000EB762F /* Assets.xcassets in Resources */,
+				76463B8A1D1C7806005E1793 /* DejaVuSans.ttf in Resources */,
 				53CF36D21CDBBF5000EB762F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

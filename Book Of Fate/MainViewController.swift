@@ -20,7 +20,6 @@ class MainViewController : UIViewController {
         super.viewDidLoad()
         
         setupViewsAndConstraints()
-        print(MICCard.hour_cards())
     }
     
     func dateUpdated() {
@@ -29,15 +28,14 @@ class MainViewController : UIViewController {
         let seconds : NSTimeInterval = datePicker.date.timeIntervalSinceNow
         let age = Int(seconds / (-60*60*24*365.25) + 1)
         let birth_card = MICCard.birthCardForMonth(month, day: day)
-        print(String(birth_card.unicode_character()))
         birth_card.age = age
         let first_karma_card = birth_card.karma_card_to_owe()
         outputLabel.text = birth_card.description
         let grand_solar_spread = MICSpread.grand_solar_spread_for_years(age)
         karma_helpers_label.text = grand_solar_spread.karmic_helpers_text(first_karma_card)
-        spread_label.attributedText = grand_solar_spread.colored_ascii_spread_for(birth_card)
+        print(grand_solar_spread.unicode_spread())
+        spread_label.text = grand_solar_spread.unicode_spread()
         let card_for_hour = MICCard.card_for_hour(10, on_date : NSDate())
-        print(card_for_hour.unicode_character())
     }
     
     func setupViewsAndConstraints() {
@@ -63,6 +61,7 @@ class MainViewController : UIViewController {
         spread_label.translatesAutoresizingMaskIntoConstraints = false
         spread_label.textAlignment = .Center
         spread_label.numberOfLines = 12
+        spread_label.font = UIFont(name: "DejaVuSans", size: 14)
         view.addSubview(spread_label)
         
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
