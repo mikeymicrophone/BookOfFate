@@ -29,7 +29,7 @@ class MainViewController : UIViewController {
         let seconds : NSTimeInterval = datePicker.date.timeIntervalSinceNow
         let age = Int(seconds / (-60*60*24*365.25) + 1)
         let birth_card = MICCard.birthCardForMonth(month, day: day)
-        print(birth_card.unicode_character())
+        print(String(birth_card.unicode_character()))
         birth_card.age = age
         let first_karma_card = birth_card.karma_card_to_owe()
         outputLabel.text = birth_card.description

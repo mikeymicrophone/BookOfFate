@@ -22,11 +22,12 @@ class MICCard : CustomStringConvertible, Equatable, Hashable {
         return face_abbreviation! + suit_abbreviation!
     }
     
-    func unicode_character() -> String {
-        let suit_bit = ["Hearts": "B", "Clubs": "D", "Diamonds": "C", "Spades": "A", "No Suit": "D"][suit]
-        let face_bit = ["Ace": "1", "Two": "2", "Three": "3", "Four": "4", "Five": "5", "Six": "6", "Seven": "7", "Eight": "8", "Nine": "9", "Ten": "A", "Jack": "B", "Queen": "D", "King": "E", "Joker": "F"][face]
-        let code = "\\u{" + "1F0\(suit_bit!)\(face_bit!)" + "}"
-        return String(code)
+    func unicode_character() -> Character {
+        let suit_bit = ["Hearts": 0xB0, "Clubs": 0xD0, "Diamonds": 0xC0, "Spades": 0xA0, "No Suit": 0xD0][suit]
+        let face_bit = ["Ace": 0x1, "Two": 0x2, "Three": 0x3, "Four": 0x4, "Five": 0x5, "Six": 0x6, "Seven": 0x7, "Eight": 0x8, "Nine": 0x9, "Ten": 0xA, "Jack": 0xB, "Queen": 0xD, "King": 0xE, "Joker": 0xF][face]
+        let code_base = 0x1F000
+        let code = code_base + suit_bit! + face_bit!
+        return Character(UnicodeScalar(code))
     }
 
     init(suit : String, face : String) {
