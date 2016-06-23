@@ -108,24 +108,21 @@ class MICSpread : CustomStringConvertible {
     }
     
     func card_in_position(position : MICPosition) -> MICCard {
-        var row : Array<MICCard> = rows()[position.vertical_position] as! Array<MICCard>
+        var row = rows()[position.vertical_position]
         return row[position.horizontal_position]
     }
     
     func position_beyond_card(card : MICCard, by_places places : Int) -> MICPosition {
-        let starting_position = position_of_card(card)
-        let final_position = starting_position.position_with_displacement(places)
-        return final_position
+        return position_of_card(card).position_with_displacement(places)
     }
 
     func environment_card_for_card(card : MICCard) -> MICCard {
-        let environment_card : MICCard = card_in_position(MICSpread.life_spread().position_of_card(card))
-        return environment_card
+        return card_in_position(MICSpread.life_spread().position_of_card(card))
     }
     
     func row_of_card(card : MICCard) -> Int {
         for row_index in 0..<(rows().count) {
-            let row = rows()[row_index] as! Array<MICCard>
+            let row = rows()[row_index]
             for position in row {
                 if card == position {
                     return row_index
@@ -137,7 +134,7 @@ class MICSpread : CustomStringConvertible {
 
     func column_of_card(card : MICCard) -> Int {
         for row_index in 0..<(rows().count) {
-            let row = rows()[row_index] as! Array<MICCard>
+            let row = rows()[row_index]
             for position in row {
                 if card == position {
                     return row.indexOf(position)!
@@ -147,7 +144,7 @@ class MICSpread : CustomStringConvertible {
         return 0
     }
 
-    func rows() -> NSMutableArray {
+    func rows() -> [[MICCard]] {
         let row_group = NSMutableArray()
         var spread_position = 0
         
@@ -164,7 +161,7 @@ class MICSpread : CustomStringConvertible {
         ruling_group.addObject(cards.objectAtIndex(50))
         ruling_group.addObject(cards.objectAtIndex(51))
         row_group.addObject(ruling_group)
-        return row_group
+        return row_group as! [[MICCard]]
     }
     
     func birthday_grid() -> [MICCard:NSMutableArray] {
@@ -221,10 +218,8 @@ class MICSpread : CustomStringConvertible {
     var description : String {
         var text = ""
         for row in rows() {
-            if row is Array<MICCard> {
-                for card in row as! Array<MICCard> {
-                    text = text + " " + card.abbreviation()
-                }
+            for card in row {
+                text = text + " " + card.abbreviation()
             }
         }
         return text
@@ -232,7 +227,7 @@ class MICSpread : CustomStringConvertible {
 
     func ascii_spread() -> String {
         var ascii : String = ""
-        let ruling_group : Array<MICCard> = rows()[7] as! Array<MICCard>
+        let ruling_group = rows()[7]
         for card in ruling_group.reverse() {
             ascii += card.abbreviation() + "|"
         }
@@ -241,7 +236,7 @@ class MICSpread : CustomStringConvertible {
         
         var planetary_group : Array<MICCard>
         for row in 0..<7 {
-            planetary_group = rows()[row] as! Array<MICCard>
+            planetary_group = rows()[row]
             for card in planetary_group.reverse() {
                 ascii += card.abbreviation() + "|"
             }
@@ -265,6 +260,11 @@ class MICSpread : CustomStringConvertible {
 
     func colored_ascii_spread_for(birth_card : MICCard) -> NSMutableAttributedString {
         color_card(birth_card, with_color: UIColor.greenColor())
+        color_card(birth_card.karma_card_owed(), with_color: UIColor.redColor())
+        color_card(birth_card.karma_card_to_owe(), with_color: UIColor.brownColor())
+        color_card(birth_card.long_range_card_for_age(birth_card.age!), with_color: UIColor.blueColor())
+        color_card(birth_card.pluto_card_for_age(birth_card.age!), with_color: UIColor.cyanColor())
+        color_card(birth_card.result_card_for_age(birth_card.age!), with_color: UIColor.darkGrayColor())
         return colored_spread!
     }
     

@@ -40,4 +40,17 @@ class Book_Of_FateTests: XCTestCase {
         XCTAssertEqual(input.face, output.face)
     }
     
+    func testJokerBirthCard() {
+        let input = MICCard.birthCardForMonth(12, day: 31)
+        let output = MICCard(suit:"No Suit", face: "Joker")
+        XCTAssertEqual(input.suit, output.suit)
+        XCTAssertEqual(input.face, output.face)
+    }
+    
+    func testCardForHour() {
+        let date = "July 3, 1953"
+        let hour = 11
+        let output = MICCard.card_for_hour(hour, on_date:date)
+        XCTAssertEqual(output, MICCard(suit: "Clubs", face: "Four"))
+    }
 }
