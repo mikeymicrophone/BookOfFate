@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class MainViewController : UIViewController {
-    var outputLabel : UILabel = UILabel()
+    var birthCardLabel : UILabel = UILabel()
     var datePicker : UIDatePicker = UIDatePicker()
     var karma_helpers_label = UILabel()
     var karma_helpees_label = UILabel()
@@ -29,13 +29,19 @@ class MainViewController : UIViewController {
         let age = Int(seconds / (-60*60*24*365.25) + 1)
         let birth_card = MICCard.birthCardForMonth(month, day: day)
         birth_card.age = age
-        let first_karma_card = birth_card.karma_card_to_owe()
-        outputLabel.text = birth_card.description
         let grand_solar_spread = MICSpread.grand_solar_spread_for_years(age)
-        karma_helpers_label.text = grand_solar_spread.karmic_helpers_text(first_karma_card)
-        print(grand_solar_spread.unicode_spread())
+        calculateKarmaCards(birth_card, spread: grand_solar_spread)
         spread_label.text = grand_solar_spread.unicode_spread()
-        let card_for_hour = MICCard.card_for_hour(10, on_date : NSDate())
+        labelBirthCard(birth_card)
+    }
+    
+    func labelBirthCard(birth_card : MICCard) {
+        birthCardLabel.text = "Your birth card: " + birth_card.description
+    }
+    
+    func calculateKarmaCards(birth_card : MICCard, spread : MICSpread) {
+        let first_karma_card = birth_card.karma_card_to_owe()
+        karma_helpers_label.text = spread.karmic_helpers_text(first_karma_card)
     }
     
     func setupViewsAndConstraints() {
@@ -47,11 +53,11 @@ class MainViewController : UIViewController {
         datePicker.addTarget(self, action: #selector(dateUpdated), forControlEvents: UIControlEvents.ValueChanged)
         view.addSubview(datePicker)
         
-        outputLabel = UILabel()
-        outputLabel.translatesAutoresizingMaskIntoConstraints = false
-        outputLabel.textAlignment = NSTextAlignment.Center
-        outputLabel.text = "Card for Date"
-        view.addSubview(outputLabel)
+        birthCardLabel = UILabel()
+        birthCardLabel.translatesAutoresizingMaskIntoConstraints = false
+        birthCardLabel.textAlignment = NSTextAlignment.Center
+        birthCardLabel.text = "Card for Date"
+        view.addSubview(birthCardLabel)
         karma_helpers_label = UILabel()
         karma_helpers_label.translatesAutoresizingMaskIntoConstraints = false
         karma_helpers_label.textAlignment = .Center
@@ -74,13 +80,13 @@ class MainViewController : UIViewController {
             "H:|[outputLabel]|",
             options: NSLayoutFormatOptions.AlignAllCenterX,
             metrics: nil,
-            views: ["outputLabel": outputLabel]
+            views: ["outputLabel": birthCardLabel]
             ))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|[datePicker(==150)][outputLabel(==40)][spread_label(==200)][karma_helpers_label(==300)]",
             options: NSLayoutFormatOptions.AlignAllCenterX,
             metrics: nil,
-            views: ["datePicker": datePicker, "outputLabel": outputLabel, "karma_helpers_label": karma_helpers_label, "spread_label": spread_label]
+            views: ["datePicker": datePicker, "outputLabel": birthCardLabel, "karma_helpers_label": karma_helpers_label, "spread_label": spread_label]
         ))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|[karma_helpers_label]|",
