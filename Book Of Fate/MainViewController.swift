@@ -11,6 +11,7 @@ import UIKit
 
 class MainViewController : UIViewController {
     var birthCardLabel : UILabel = UILabel()
+    var plutoCardLabel : UILabel = UILabel()
     var datePicker : UIDatePicker = UIDatePicker()
     var karma_helpers_label = UILabel()
     var karma_helpees_label = UILabel()
@@ -33,10 +34,15 @@ class MainViewController : UIViewController {
         calculateKarmaCards(birth_card, spread: grand_solar_spread)
         spread_label.text = grand_solar_spread.unicode_spread()
         labelBirthCard(birth_card)
+        labelPlutoCard(birth_card)
     }
     
     func labelBirthCard(birth_card : MICCard) {
-        birthCardLabel.text = "Your birth card: " + birth_card.description
+        birthCardLabel.text = "   Birth card: " + birth_card.description
+    }
+    
+    func labelPlutoCard(birth_card : MICCard) {
+        plutoCardLabel.text = "   Pluto card: " + birth_card.pluto_card_for_age(birth_card.age!).description
     }
     
     func calculateKarmaCards(birth_card : MICCard, spread : MICSpread) {
@@ -47,23 +53,23 @@ class MainViewController : UIViewController {
     func setupViewsAndConstraints() {
         view.backgroundColor = UIColor.whiteColor()
         
-        datePicker = UIDatePicker()
         datePicker.translatesAutoresizingMaskIntoConstraints = false
         datePicker.datePickerMode = UIDatePickerMode.Date
         datePicker.addTarget(self, action: #selector(dateUpdated), forControlEvents: UIControlEvents.ValueChanged)
         view.addSubview(datePicker)
-        
-        birthCardLabel = UILabel()
+
         birthCardLabel.translatesAutoresizingMaskIntoConstraints = false
-        birthCardLabel.textAlignment = NSTextAlignment.Center
         birthCardLabel.text = "Card for Date"
         view.addSubview(birthCardLabel)
-        karma_helpers_label = UILabel()
+        
+        plutoCardLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(plutoCardLabel)
+
         karma_helpers_label.translatesAutoresizingMaskIntoConstraints = false
         karma_helpers_label.textAlignment = .Center
         karma_helpers_label.numberOfLines = 12
         view.addSubview(karma_helpers_label)
-        spread_label = UILabel()
+        
         spread_label.translatesAutoresizingMaskIntoConstraints = false
         spread_label.textAlignment = .Center
         spread_label.numberOfLines = 12
@@ -77,16 +83,22 @@ class MainViewController : UIViewController {
             views: ["datePicker": datePicker]
         ))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|[outputLabel]|",
+            "H:|[birthCardLabel]|",
             options: NSLayoutFormatOptions.AlignAllCenterX,
             metrics: nil,
-            views: ["outputLabel": birthCardLabel]
+            views: ["birthCardLabel": birthCardLabel]
             ))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|[datePicker(==150)][outputLabel(==40)][spread_label(==200)][karma_helpers_label(==300)]",
+            "H:|[plutoCardLabel]|",
             options: NSLayoutFormatOptions.AlignAllCenterX,
             metrics: nil,
-            views: ["datePicker": datePicker, "outputLabel": birthCardLabel, "karma_helpers_label": karma_helpers_label, "spread_label": spread_label]
+            views: ["plutoCardLabel": plutoCardLabel]
+            ))
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|[datePicker(==150)][birthCardLabel(==40)][plutoCardLabel(==40)][spread_label(==200)][karma_helpers_label(==300)]",
+            options: NSLayoutFormatOptions.AlignAllCenterX,
+            metrics: nil,
+            views: ["datePicker": datePicker, "birthCardLabel": birthCardLabel, "karma_helpers_label": karma_helpers_label, "spread_label": spread_label, "plutoCardLabel": plutoCardLabel]
         ))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|[karma_helpers_label]|",
