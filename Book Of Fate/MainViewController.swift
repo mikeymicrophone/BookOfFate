@@ -12,6 +12,7 @@ import UIKit
 class MainViewController : UIViewController {
     var birthCardLabel : UILabel = UILabel()
     var plutoCardLabel : UILabel = UILabel()
+    var resultCardLabel : UILabel = UILabel()
     var datePicker : UIDatePicker = UIDatePicker()
     var karma_helpers_label = UILabel()
     var karma_helpees_label = UILabel()
@@ -35,6 +36,7 @@ class MainViewController : UIViewController {
         spread_label.text = grand_solar_spread.unicode_spread()
         labelBirthCard(birth_card)
         labelPlutoCard(birth_card)
+        labelResultCard(birth_card)
     }
     
     func labelBirthCard(birth_card : MICCard) {
@@ -43,6 +45,10 @@ class MainViewController : UIViewController {
     
     func labelPlutoCard(birth_card : MICCard) {
         plutoCardLabel.text = "   Pluto card: " + birth_card.pluto_card_for_age(birth_card.age!).description
+    }
+    
+    func labelResultCard(birth_card : MICCard) {
+        resultCardLabel.text = "   Result card: " + birth_card.result_card_for_age(birth_card.age!).description
     }
     
     func calculateKarmaCards(birth_card : MICCard, spread : MICSpread) {
@@ -59,11 +65,13 @@ class MainViewController : UIViewController {
         view.addSubview(datePicker)
 
         birthCardLabel.translatesAutoresizingMaskIntoConstraints = false
-        birthCardLabel.text = "Card for Date"
         view.addSubview(birthCardLabel)
         
         plutoCardLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(plutoCardLabel)
+        
+        resultCardLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(resultCardLabel)
 
         karma_helpers_label.translatesAutoresizingMaskIntoConstraints = false
         karma_helpers_label.textAlignment = .Center
@@ -73,7 +81,7 @@ class MainViewController : UIViewController {
         spread_label.translatesAutoresizingMaskIntoConstraints = false
         spread_label.textAlignment = .Center
         spread_label.numberOfLines = 12
-        spread_label.font = UIFont(name: "DejaVuSans", size: 14)
+        spread_label.font = UIFont(name: "DejaVuSans", size: 23)
         view.addSubview(spread_label)
         
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
@@ -87,30 +95,36 @@ class MainViewController : UIViewController {
             options: NSLayoutFormatOptions.AlignAllCenterX,
             metrics: nil,
             views: ["birthCardLabel": birthCardLabel]
-            ))
+        ))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|[plutoCardLabel]|",
             options: NSLayoutFormatOptions.AlignAllCenterX,
             metrics: nil,
             views: ["plutoCardLabel": plutoCardLabel]
-            ))
+        ))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|[datePicker(==150)][birthCardLabel(==40)][plutoCardLabel(==40)][spread_label(==200)][karma_helpers_label(==300)]",
+            "H:|[resultCardLabel]|",
             options: NSLayoutFormatOptions.AlignAllCenterX,
             metrics: nil,
-            views: ["datePicker": datePicker, "birthCardLabel": birthCardLabel, "karma_helpers_label": karma_helpers_label, "spread_label": spread_label, "plutoCardLabel": plutoCardLabel]
+            views: ["resultCardLabel": resultCardLabel]
+        ))
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|[datePicker(==150)][birthCardLabel(==25)][plutoCardLabel(==25)][resultCardLabel(==25)][spread_label(==250)][karma_helpers_label(==300)]",
+            options: NSLayoutFormatOptions.AlignAllCenterX,
+            metrics: nil,
+            views: ["datePicker": datePicker, "birthCardLabel": birthCardLabel, "karma_helpers_label": karma_helpers_label, "spread_label": spread_label, "plutoCardLabel": plutoCardLabel, "resultCardLabel": resultCardLabel]
         ))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|[karma_helpers_label]|",
             options: NSLayoutFormatOptions.AlignAllCenterX,
             metrics: nil,
             views: ["karma_helpers_label": karma_helpers_label]
-            ))
+        ))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|[spread_label]|",
             options: NSLayoutFormatOptions.AlignAllCenterX,
             metrics: nil,
             views: ["spread_label": spread_label]
-            ))
+        ))
     }
 }
