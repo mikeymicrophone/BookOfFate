@@ -196,7 +196,11 @@ class MICSpread : CustomStringConvertible {
                     birthdays.addObject(date)
                 }
             }
-            birthdays_for_card[card as! MICCard] = birthdays
+            let orderedBirthdays : NSMutableArray = NSMutableArray()
+            orderedBirthdays.addObjectsFromArray(birthdays.sort({ first, second in
+                (first as! NSDate).timeIntervalSince1970 < (second as! NSDate).timeIntervalSince1970
+            }))
+            birthdays_for_card[card as! MICCard] = orderedBirthdays
             birthdays = NSMutableArray()
         }
         return birthdays_for_card
@@ -206,11 +210,21 @@ class MICSpread : CustomStringConvertible {
         let dates = birthday_grid()[card]
         var text = ""
         let dateFormatter = NSDateFormatter()
+        let october = NSDateComponents()
+        october.year = 2016
+        october.month = 10
+        october.day = 1
+        let cutoff = NSCalendar.currentCalendar().dateFromComponents(october)
         dateFormatter.timeStyle = .NoStyle
-        dateFormatter.dateStyle = .MediumStyle
+        dateFormatter.dateStyle = .ShortStyle
         for date in dates! {
-            let dateString : NSString = dateFormatter.stringFromDate(date as! NSDate)
-            text = text + (dateString as String) + "\n"
+            var dateString : NSString = dateFormatter.stringFromDate(date as! NSDate)
+            if date.compare(cutoff!) == .OrderedAscending {
+                dateString = dateString.substringToIndex(4)
+            } else {
+                dateString = dateString.substringToIndex(5)
+            }
+            text = text + (dateString as String) + ", "
         }
         return text
     }

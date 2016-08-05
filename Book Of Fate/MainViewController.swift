@@ -65,6 +65,7 @@ class MainViewController : UIViewController {
         view.addSubview(datePicker)
 
         birthCardLabel.translatesAutoresizingMaskIntoConstraints = false
+        birthCardLabel.text = "       Select your birthdate (or your friend's)."
         view.addSubview(birthCardLabel)
         
         plutoCardLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -109,7 +110,7 @@ class MainViewController : UIViewController {
             views: ["resultCardLabel": resultCardLabel]
         ))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|[datePicker(==150)][birthCardLabel(==25)][plutoCardLabel(==25)][resultCardLabel(==25)][spread_label(==250)][karma_helpers_label(==300)]",
+            "V:|[datePicker(==150)][birthCardLabel(==25)][plutoCardLabel(==25)][resultCardLabel(==25)][spread_label(==250)][karma_helpers_label(==100)]",
             options: NSLayoutFormatOptions.AlignAllCenterX,
             metrics: nil,
             views: ["datePicker": datePicker, "birthCardLabel": birthCardLabel, "karma_helpers_label": karma_helpers_label, "spread_label": spread_label, "plutoCardLabel": plutoCardLabel, "resultCardLabel": resultCardLabel]
