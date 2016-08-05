@@ -53,7 +53,8 @@ class MainViewController : UIViewController {
     
     func calculateKarmaCards(birth_card : MICCard, spread : MICSpread) {
         let first_karma_card = birth_card.karma_card_to_owe()
-        karma_helpers_label.text = spread.karmic_helpers_text(first_karma_card)
+        let second_karma_card = birth_card.karma_card_owed()
+        karma_helpers_label.text = spread.karmic_helpers_text(second_karma_card, title: "Your helpers are") + "\n" + spread.karmic_helpers_text(first_karma_card, title: "You help")
     }
     
     func setupViewsAndConstraints() {

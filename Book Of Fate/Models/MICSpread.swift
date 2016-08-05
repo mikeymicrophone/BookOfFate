@@ -206,9 +206,9 @@ class MICSpread : CustomStringConvertible {
         return birthdays_for_card
     }
     
-    func karmic_helpers_text(card : MICCard) -> String {
+    func karmic_helpers_text(card : MICCard, title : String) -> String {
         let dates = birthday_grid()[card]
-        var text = "Your helpers are \(card.description); people born on "
+        var text = "\(title) \(card.description); people born on "
         let dateFormatter = NSDateFormatter()
         let october = NSDateComponents()
         october.year = 2016
