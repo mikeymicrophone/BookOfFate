@@ -40,7 +40,7 @@ class MICPosition : CustomStringConvertible {
             if ((horizontal_position + places) < 7) {
                 final_position = MICPosition(row:vertical_position, column:horizontal_position + places)
             } else if ((horizontal_position + places) < 10) {
-                final_position = MICPosition(row:7, column:horizontal_position)
+                final_position = MICPosition(row:7, column:(horizontal_position + places) % 7)
             } else {
                 let horizontal = (horizontal_position + places) - 10;
                 let vertical = horizontal / 7;
