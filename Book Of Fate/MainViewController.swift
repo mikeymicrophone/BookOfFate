@@ -11,6 +11,7 @@ import UIKit
 
 class MainViewController : UIViewController {
     var birthCardLabel : UILabel = UILabel()
+    var planetaryCardLabel : UILabel = UILabel()
     var plutoCardLabel : UILabel = UILabel()
     var resultCardLabel : UILabel = UILabel()
     var datePicker : UIDatePicker = UIDatePicker()
@@ -47,6 +48,7 @@ class MainViewController : UIViewController {
     func labelPlanetaryCard(birth_card : MICCard, spread : MICSpread, month : Int, day : Int) {
         let planetary_card = spread.planet_for_card(birth_card, month: month, day: day)
         print(planetary_card)
+        planetaryCardLabel.text = "   Planetary card: " + planetary_card.description
     }
     
     func labelPlutoCard(birth_card : MICCard) {
@@ -74,6 +76,9 @@ class MainViewController : UIViewController {
         birthCardLabel.translatesAutoresizingMaskIntoConstraints = false
         birthCardLabel.text = "       Select your birthdate (or your friend's)."
         view.addSubview(birthCardLabel)
+        
+        planetaryCardLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(planetaryCardLabel)
         
         plutoCardLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(plutoCardLabel)
@@ -105,6 +110,12 @@ class MainViewController : UIViewController {
             views: ["birthCardLabel": birthCardLabel]
         ))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|[planetaryCardLabel]|",
+            options: NSLayoutFormatOptions.AlignAllCenterX,
+            metrics: nil,
+            views: ["planetaryCardLabel": planetaryCardLabel]
+        ))
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|[plutoCardLabel]|",
             options: NSLayoutFormatOptions.AlignAllCenterX,
             metrics: nil,
@@ -117,10 +128,10 @@ class MainViewController : UIViewController {
             views: ["resultCardLabel": resultCardLabel]
         ))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|[datePicker(==150)][birthCardLabel(==25)][plutoCardLabel(==25)][resultCardLabel(==25)][spread_label(==250)][karma_helpers_label(==100)]",
+            "V:|[datePicker(==150)][birthCardLabel(==25)][planetaryCardLabel(==25)][plutoCardLabel(==25)][resultCardLabel(==25)][spread_label(==250)][karma_helpers_label(==100)]",
             options: NSLayoutFormatOptions.AlignAllCenterX,
             metrics: nil,
-            views: ["datePicker": datePicker, "birthCardLabel": birthCardLabel, "karma_helpers_label": karma_helpers_label, "spread_label": spread_label, "plutoCardLabel": plutoCardLabel, "resultCardLabel": resultCardLabel]
+            views: ["datePicker": datePicker, "birthCardLabel": birthCardLabel, "karma_helpers_label": karma_helpers_label, "spread_label": spread_label, "plutoCardLabel": plutoCardLabel, "resultCardLabel": resultCardLabel, "planetaryCardLabel": planetaryCardLabel]
         ))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|[karma_helpers_label]|",
