@@ -25,8 +25,8 @@ class MainViewController : UIViewController {
     }
     
     func dateUpdated() {
-        let month = NSCalendar.currentCalendar().component(NSCalendarUnit.Month, fromDate: datePicker.date)
-        let day = NSCalendar.currentCalendar().component(NSCalendarUnit.Day, fromDate: datePicker.date)
+        let month = NSCalendar.currentCalendar().component(.Month, fromDate: datePicker.date)
+        let day = NSCalendar.currentCalendar().component(.Day, fromDate: datePicker.date)
         let seconds : NSTimeInterval = datePicker.date.timeIntervalSinceNow
         let age = Int(seconds / (-60*60*24*365.25) + 1)
         let birth_card = MICCard.birthCardForMonth(month, day: day)
@@ -35,12 +35,18 @@ class MainViewController : UIViewController {
         calculateKarmaCards(birth_card, spread: grand_solar_spread)
         spread_label.text = grand_solar_spread.unicode_spread()
         labelBirthCard(birth_card)
+        labelPlanetaryCard(birth_card, spread: grand_solar_spread, month: month, day: day)
         labelPlutoCard(birth_card)
         labelResultCard(birth_card)
     }
     
     func labelBirthCard(birth_card : MICCard) {
         birthCardLabel.text = "   Birth card: " + birth_card.description
+    }
+    
+    func labelPlanetaryCard(birth_card : MICCard, spread : MICSpread, month : Int, day : Int) {
+        let planetary_card = spread.planet_for_card(birth_card, month: month, day: day)
+        print(planetary_card)
     }
     
     func labelPlutoCard(birth_card : MICCard) {

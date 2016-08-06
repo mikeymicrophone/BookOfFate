@@ -21,6 +21,7 @@
 		53CF37011CDBD2C400EB762F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF37001CDBD2C400EB762F /* MainViewController.swift */; };
 		53CF37021CDBD2C400EB762F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF37001CDBD2C400EB762F /* MainViewController.swift */; };
 		76463B8A1D1C7806005E1793 /* DejaVuSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76463B891D1C7806005E1793 /* DejaVuSans.ttf */; };
+		76A1EEFD1D55E06C00EB15A2 /* MICPlanet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A1EEFC1D55E06C00EB15A2 /* MICPlanet.swift */; };
 		76AA883B1CF6A2F400A46A86 /* MICPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AA883A1CF6A2F400A46A86 /* MICPosition.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		53CF36FD1CDBCBC200EB762F /* MICSpread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MICSpread.swift; path = Models/MICSpread.swift; sourceTree = "<group>"; };
 		53CF37001CDBD2C400EB762F /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		76463B891D1C7806005E1793 /* DejaVuSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = DejaVuSans.ttf; path = "../../../Downloads/dejavu-sans-ttf-2.35/ttf/DejaVuSans.ttf"; sourceTree = "<group>"; };
+		76A1EEFC1D55E06C00EB15A2 /* MICPlanet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MICPlanet.swift; sourceTree = "<group>"; };
 		76AA883A1CF6A2F400A46A86 /* MICPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MICPosition.swift; path = Models/MICPosition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +122,7 @@
 				53CF36D81CDBBF5000EB762F /* Info.plist */,
 				53CF36FA1CDBC72300EB762F /* MICCard.swift */,
 				53CF36FD1CDBCBC200EB762F /* MICSpread.swift */,
+				76A1EEFC1D55E06C00EB15A2 /* MICPlanet.swift */,
 				76AA883A1CF6A2F400A46A86 /* MICPosition.swift */,
 			);
 			path = "Book Of Fate";
@@ -278,6 +281,7 @@
 			files = (
 				53CF36FB1CDBC72300EB762F /* MICCard.swift in Sources */,
 				53CF36CF1CDBBF5000EB762F /* ViewController.swift in Sources */,
+				76A1EEFD1D55E06C00EB15A2 /* MICPlanet.swift in Sources */,
 				76AA883B1CF6A2F400A46A86 /* MICPosition.swift in Sources */,
 				53CF36FE1CDBCBC200EB762F /* MICSpread.swift in Sources */,
 				53CF36CD1CDBBF5000EB762F /* AppDelegate.swift in Sources */,

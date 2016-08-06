@@ -164,6 +164,43 @@ class MICSpread : CustomStringConvertible {
         return row_group as! [[MICCard]]
     }
     
+    func direct_cards_for_card(birth_card : MICCard) -> [MICPlanet:MICCard] {
+        var direct_cards = [MICPlanet:MICCard]()
+        direct_cards[.Mercury] = card_in_position(position_beyond_card(birth_card, by_places: 1))
+        direct_cards[.Venus] = card_in_position(position_beyond_card(birth_card, by_places: 2))
+        direct_cards[.Mars] = card_in_position(position_beyond_card(birth_card, by_places: 3))
+        direct_cards[.Jupiter] = card_in_position(position_beyond_card(birth_card, by_places: 4))
+        direct_cards[.Saturn] = card_in_position(position_beyond_card(birth_card, by_places: 5))
+        direct_cards[.Neptune] = card_in_position(position_beyond_card(birth_card, by_places: 6))
+        return direct_cards
+    }
+    
+    func planet_for_card(card : MICCard, month : Int, day : Int) -> MICCard {
+        let calendar = NSCalendar.currentCalendar()
+        let current_day = NSDate()
+        let current_month = calendar.component(.Month, fromDate:current_day)
+        let last_birthday = NSDateComponents()
+        if current_month > month {
+            last_birthday.year = 2016
+        } else if current_month == month {
+            let current_day = calendar.component(.Day, fromDate:current_day)
+            if current_day > day {
+                last_birthday.year = 2015
+            } else {
+                last_birthday.year = 2016
+            }
+        } else {
+            last_birthday.year = 2015
+        }
+        last_birthday.month = month
+        last_birthday.day = day
+        let birthday = calendar.dateFromComponents(last_birthday)
+        let days_since_birthday = calendar.components(.Day, fromDate: birthday!, toDate: current_day, options: []).day
+        let planets_since_birthday = days_since_birthday / 52
+        print(planets_since_birthday)
+        return direct_cards_for_card(card)[MICPlanet.planets[planets_since_birthday]]!
+    }
+    
     func birthday_grid() -> [MICCard:NSMutableArray] {
         let calendar = NSCalendar.currentCalendar()
         var current_day = NSDateComponents()
