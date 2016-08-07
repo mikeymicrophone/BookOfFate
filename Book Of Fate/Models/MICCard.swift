@@ -89,18 +89,6 @@ class MICCard : CustomStringConvertible, Equatable, Hashable {
     func karma_card_owed() -> MICCard {
         return MICSpread.life_spread().card_in_position(MICSpread.natural_spread().position_of_card(self))
     }
-
-    func long_range_card_for_age(age : Int) -> MICCard {
-        let era_spread = MICSpread.grand_solar_spread_for_years(age)
-        var range = 0
-        if age % 7 == 0 {
-            range = 7
-        } else {
-            range = age % 7
-        }
-        let long_range_card : MICCard = era_spread.card_in_position(era_spread.position_beyond_card(self, by_places:range))
-        return long_range_card
-    }
     
     func pluto_card_for_age(age : Int) -> MICCard {
         let era_spread = MICSpread.grand_solar_spread_for_years(age)

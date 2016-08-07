@@ -11,6 +11,7 @@ import UIKit
 
 class MainViewController : UIViewController {
     var birthCardLabel : UILabel = UILabel()
+    var longRangeCardLabel : UILabel = UILabel()
     var planetaryCardLabel : UILabel = UILabel()
     var plutoCardLabel : UILabel = UILabel()
     var resultCardLabel : UILabel = UILabel()
@@ -26,6 +27,7 @@ class MainViewController : UIViewController {
     }
     
     func dateUpdated() {
+        let person = MICPerson(birth_date: datePicker.date)
         let month = NSCalendar.currentCalendar().component(.Month, fromDate: datePicker.date)
         let day = NSCalendar.currentCalendar().component(.Day, fromDate: datePicker.date)
         let seconds : NSTimeInterval = datePicker.date.timeIntervalSinceNow
@@ -39,10 +41,15 @@ class MainViewController : UIViewController {
         labelPlanetaryCard(birth_card, spread: grand_solar_spread, month: month, day: day)
         labelPlutoCard(birth_card)
         labelResultCard(birth_card)
+        labelLongRangeCard(person)
     }
     
     func labelBirthCard(birth_card : MICCard) {
         birthCardLabel.text = "   Birth card: " + birth_card.description
+    }
+    
+    func labelLongRangeCard(person : MICPerson) {
+        longRangeCardLabel.text = "   This year: " + person.long_range_card().description
     }
     
     func labelPlanetaryCard(birth_card : MICCard, spread : MICSpread, month : Int, day : Int) {
@@ -77,6 +84,9 @@ class MainViewController : UIViewController {
         birthCardLabel.text = "       Select your birthdate (or your friend's)."
         view.addSubview(birthCardLabel)
         
+        longRangeCardLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(longRangeCardLabel)
+        
         planetaryCardLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(planetaryCardLabel)
         
@@ -110,6 +120,12 @@ class MainViewController : UIViewController {
             views: ["birthCardLabel": birthCardLabel]
         ))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|[longRangeCardLabel]|",
+            options: NSLayoutFormatOptions.AlignAllCenterX,
+            metrics: nil,
+            views: ["longRangeCardLabel": longRangeCardLabel]
+        ))
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|[planetaryCardLabel]|",
             options: NSLayoutFormatOptions.AlignAllCenterX,
             metrics: nil,
@@ -128,10 +144,10 @@ class MainViewController : UIViewController {
             views: ["resultCardLabel": resultCardLabel]
         ))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|[datePicker(==150)][birthCardLabel(==25)][planetaryCardLabel(==25)][plutoCardLabel(==25)][resultCardLabel(==25)][spread_label(==250)][karma_helpers_label(==100)]",
+            "V:|[datePicker(==150)][birthCardLabel(==25)][longRangeCardLabel(==25)][planetaryCardLabel(==25)][plutoCardLabel(==25)][resultCardLabel(==25)][spread_label(==250)][karma_helpers_label(==100)]",
             options: NSLayoutFormatOptions.AlignAllCenterX,
             metrics: nil,
-            views: ["datePicker": datePicker, "birthCardLabel": birthCardLabel, "karma_helpers_label": karma_helpers_label, "spread_label": spread_label, "plutoCardLabel": plutoCardLabel, "resultCardLabel": resultCardLabel, "planetaryCardLabel": planetaryCardLabel]
+            views: ["datePicker": datePicker, "birthCardLabel": birthCardLabel, "karma_helpers_label": karma_helpers_label, "spread_label": spread_label, "plutoCardLabel": plutoCardLabel, "resultCardLabel": resultCardLabel, "planetaryCardLabel": planetaryCardLabel, "longRangeCardLabel": longRangeCardLabel]
         ))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|[karma_helpers_label]|",

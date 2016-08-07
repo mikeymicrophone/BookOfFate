@@ -323,7 +323,6 @@ class MICSpread : CustomStringConvertible {
         color_card(birth_card, with_color: UIColor.greenColor())
         color_card(birth_card.karma_card_owed(), with_color: UIColor.redColor())
         color_card(birth_card.karma_card_to_owe(), with_color: UIColor.brownColor())
-        color_card(birth_card.long_range_card_for_age(birth_card.age!), with_color: UIColor.blueColor())
         color_card(birth_card.pluto_card_for_age(birth_card.age!), with_color: UIColor.cyanColor())
         color_card(birth_card.result_card_for_age(birth_card.age!), with_color: UIColor.darkGrayColor())
         return colored_spread!
@@ -346,6 +345,5 @@ class MICSpread : CustomStringConvertible {
             unicode += "\n"
         }
         return unicode
-
     }
 }
