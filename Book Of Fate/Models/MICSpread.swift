@@ -171,20 +171,21 @@ class MICSpread : CustomStringConvertible {
         direct_cards[.Mars] = card_in_position(position_beyond_card(birth_card, by_places: 3))
         direct_cards[.Jupiter] = card_in_position(position_beyond_card(birth_card, by_places: 4))
         direct_cards[.Saturn] = card_in_position(position_beyond_card(birth_card, by_places: 5))
-        direct_cards[.Neptune] = card_in_position(position_beyond_card(birth_card, by_places: 6))
+        direct_cards[.Uranus] = card_in_position(position_beyond_card(birth_card, by_places: 6))
+        direct_cards[.Neptune] = card_in_position(position_beyond_card(birth_card, by_places: 7))
         return direct_cards
     }
     
-    func planet_for_card(card : MICCard, month : Int, day : Int) -> MICCard {
+    func planet_for_card(card : MICCard, month : Int, day : Int) -> MICPlanet {
         let calendar = NSCalendar.currentCalendar()
-        let current_day = NSDate()
-        let current_month = calendar.component(.Month, fromDate:current_day)
+        let current_date = NSDate()
+        let current_month = calendar.component(.Month, fromDate:current_date)
         let last_birthday = NSDateComponents()
         if current_month > month {
             last_birthday.year = 2016
         } else if current_month == month {
-            let current_day = calendar.component(.Day, fromDate:current_day)
-            if current_day > day {
+            let current_day = calendar.component(.Day, fromDate:current_date)
+            if current_day < day {
                 last_birthday.year = 2015
             } else {
                 last_birthday.year = 2016
@@ -195,10 +196,16 @@ class MICSpread : CustomStringConvertible {
         last_birthday.month = month
         last_birthday.day = day
         let birthday = calendar.dateFromComponents(last_birthday)
-        let days_since_birthday = calendar.components(.Day, fromDate: birthday!, toDate: current_day, options: []).day
-        let planets_since_birthday = days_since_birthday / 52
-        print(planets_since_birthday)
-        return direct_cards_for_card(card)[MICPlanet.planets[planets_since_birthday]]!
+        let days_since_birthday = calendar.components(.Day, fromDate: birthday!, toDate: current_date, options: []).day
+        var planets_since_birthday = days_since_birthday / 52
+        if planets_since_birthday == 7 {
+            planets_since_birthday = 6
+        }
+        return MICPlanet.planets[planets_since_birthday]
+    }
+    
+    func planetary_card_for_card(card : MICCard, month : Int, day : Int) -> MICCard {
+        return direct_cards_for_card(card)[planet_for_card(card, month: month, day: day)]!
     }
     
     func birthday_grid() -> [MICCard:NSMutableArray] {

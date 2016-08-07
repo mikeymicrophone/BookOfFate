@@ -46,8 +46,7 @@ class MainViewController : UIViewController {
     }
     
     func labelPlanetaryCard(birth_card : MICCard, spread : MICSpread, month : Int, day : Int) {
-        let planetary_card = spread.planet_for_card(birth_card, month: month, day: day)
-        print(planetary_card)
+        let planetary_card = spread.planetary_card_for_card(birth_card, month: month, day: day)
         planetaryCardLabel.text = "   Planetary card: " + planetary_card.description
     }
     
