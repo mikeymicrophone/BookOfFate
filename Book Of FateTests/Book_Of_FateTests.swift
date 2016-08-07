@@ -48,9 +48,13 @@ class Book_Of_FateTests: XCTestCase {
     }
     
     func testCardForHour() {
-        let date = "July 3, 1953"
-        let hour = 11
-        let output = MICCard.card_for_hour(hour, date:date)
+        let rlc_example_date = NSDateComponents()
+        rlc_example_date.year = 1953
+        rlc_example_date.month = 7
+        rlc_example_date.day = 3
+        rlc_example_date.hour = 11
+        let date = NSCalendar.currentCalendar().dateFromComponents(rlc_example_date)
+        let output = date.card_for_hour()
         XCTAssertEqual(output, MICCard(suit: "Clubs", face: "Four"))
     }
 }

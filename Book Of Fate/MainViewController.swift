@@ -42,6 +42,7 @@ class MainViewController : UIViewController {
         labelPlutoCard(birth_card)
         labelResultCard(birth_card)
         labelLongRangeCard(person)
+        print(NSDate().card_for_hour())
     }
     
     func labelBirthCard(birth_card : MICCard) {
